@@ -6,9 +6,9 @@ use CodeIgniter\Model;
 class CargoModel extends Model{
 
 	protected $table ='cargo';
-	protected $id ='idcargo';
+	protected $id ='id_cargo';
 	protected $returnType='array';
-	protected $allowedFields = ['nombre_cargo','estado_cargo'];
+	protected $allowedFields = ['nombre_cargo','estado_cargo','fecha_cargo'];
 }
 
 

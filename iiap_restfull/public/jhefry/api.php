@@ -6,7 +6,7 @@
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://localhost/git/lavadora/drive_restfull/index.php/registros",
+          CURLOPT_URL => "http://localhost/iiap/iiap_restfull/index.php/registros",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -19,7 +19,7 @@
             "&apellidos=".$_POST["apellidos"].
             "&email=".$_POST["email"],
           CURLOPT_HTTPHEADER => array(
-            "Authorization: Basic YTJhYTA3YWRmaGRmcmV4ZmhnZGZoZGZlcnR0Z2VITi5yb3hMT1dZbkV6bXV0VGFScExVaTQyOFltaUsuOm8yYW8wN29kZmhkZnJleGZoZ2RmaGRmZXJ0dGdlbEVLa3hFSkt0d0FPSnd4aExXU3E4TUNPZXB2eHFpaQ==",
+            "Authorization: Basic YTJhYTA3YWRmaGRmcmV4ZmhnZGZoZGZlcnR0Z2VIVUNUa1c1aS45R1RlOUFydDh5MVwvYlNLZFZrMmlLVzpvMmFvMDdvZGZoZGZyZXhmaGdkZmhkZmVydHRnZTVYc0tvS2x5WUdRaEpTdUxvSXRkZXhqZzhBOWp0VVM=",
             "Content-Type: application/x-www-form-urlencoded"
           ),
         ));

@@ -41,6 +41,7 @@ class Registros extends Controller {
             'apellidos' => $request->getVar("apellidos"),
             'email' => $request->getVar("email")
         );
+
         //validacion de los datos
         //empty () verifica si una variable está vacía o no.
         if (!empty($datos)) {
@@ -75,7 +76,7 @@ class Registros extends Controller {
                     "cliente_id" => str_replace('$', 'a', $cliente_id),
                     "llave_secreta" => str_replace('$', 'o', $llave_secreta)
                 );
-
+                //var_dump($datos);die;
                 $registroModel = new RegistrosModel($db);
                 $registro = $registroModel->insert($datos);
                 $data = array('Status' => 200, 'Detalle' => 'Registro satisfactorio, guarde sus credenciales',

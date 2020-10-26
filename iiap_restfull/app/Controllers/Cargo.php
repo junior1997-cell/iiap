@@ -84,8 +84,8 @@ class Cargo extends Controller {
 
                 if ($request->getHeader('Authorization') == 'Authorization: Basic ' . base64_encode($value["cliente_id"] . ":" . $value["llave_secreta"])) {
                     
-                    $clienteModel = new ClientesModel();
-                    $cliente = $clienteModel->where('estado', 1)
+                    $clienteModel = new CargoModel();
+                    $cliente = $clienteModel->where('estado_cargo', 1)
                             ->find($id);
                     if (!empty($cliente)) {
 
@@ -138,27 +138,15 @@ class Cargo extends Controller {
 
                     // Registro de datos
                     //El getVar()método extraerá de $ _REQUEST, por lo que devolverá cualquier dato de $ _GET, $ POST 
-                    $datos = array("nombre" => $request->getVar("nombre"),
-                        "correo" => $request->getVar("correo"),
-                        "zip" => $request->getVar("zip"),
-                        "telefono1" => $request->getVar("telefono1"),
-                        "telefono2" => $request->getVar("telefono2"),
-                        "pais" => $request->getVar("pais"),
-                        "direccion" => $request->getVar("direccion")
+                    $datos = array("nombre_cargo" => $request->getVar("nombre_cargo")
                     );
-
+                    //var_dump($datos);die;
                     if (!empty($datos)) {
 
                         // Validar los datos
 
                         $validation->setRules([
-                            'nombre' => 'required|string|max_length[255]',
-                            'correo' => 'required|valid_email',
-                            'zip' => 'required|string|max_length[255]',
-                            'telefono1' => 'required|string|max_length[255]',
-                            'telefono2' => 'required|string|max_length[255]',
-                            'pais' => 'required|string|max_length[255]',
-                            'direccion' => 'required|string|max_length[255]'
+                            'nombre_cargo' => 'required|string|max_length[255]'
                         ]);
 
                         $validation->withRequest($this->request)
@@ -172,19 +160,13 @@ class Cargo extends Controller {
                             );
                             return json_encode($data, true);
                         } else {
-                            $datos = array("nombre" => $datos["nombre"],
-                                "correo" => $datos["correo"],
-                                "zip" => $datos["zip"],
-                                "telefono1" => $datos["telefono1"],
-                                "telefono2" => $datos["telefono2"],
-                                "pais" => $datos["pais"],
-                                "direccion" => $value["direccion"]);
+                            $datos = array("nombre_cargo" => $datos["nombre_cargo"];
 
-                            $clienteModel = new ClientesModel($db);
+                            $clienteModel = new CargoModel($db);
                             $cliente = $clienteModel->insert($datos);
                             $data = array(
                                 "Status" => 200,
-                                "Detalle" => "Registro exitoso, cliente guardado"
+                                "Detalle" => "Registro exitoso, Cargo guardado"
                             );
                             return json_encode($data, true);
                         }
@@ -216,7 +198,7 @@ class Cargo extends Controller {
         return json_encode($data, true);
     }
 
-    public function update($id) {
+    /*public function update($id) {
         //realiza solicitud a services y le decimos que ejecute el metodo request()
         $request = \Config\Services::request();
         $validation = \Config\Services::validation();
@@ -358,6 +340,6 @@ class Cargo extends Controller {
         }
 
         return json_encode($data, true);
-    }
+    }*/
 
 }
