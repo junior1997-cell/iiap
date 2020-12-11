@@ -1,0 +1,11 @@
+examen 2:
+
+1.- Diseño de login y este este validado con la base de datos.  
+2.- Sino  existe el  usuario, crear boton para un registrar. (nombre dni, correo )
+3.- una vez registrado  ingresar a una vista que agregar elementos  según  ejemplo de la semama 11. 
+4.- Ver como  publicar el proyecto  en un .apk y .ipa
+ 
+Diseño: 5 
+lógica: 10 
+Exportancion : 5
+
